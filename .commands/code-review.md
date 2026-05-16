@@ -45,7 +45,7 @@ Code Reviewer.
 
 ## Quality Gate
 
-High and critical findings must be fixed or explicitly accepted as risks before human approval.
+High and critical findings must be fixed or explicitly accepted by the user before acceptance archival.
 
 ## Failure Handling
 
@@ -53,4 +53,4 @@ If issues are found, route back to `tdd-develop` after recording findings.
 
 ## Next Command
 
-`human-review`
+Stop and wait for the user to perform their own review. Continue to `acceptance-archive` only after the user explicitly confirms review is complete.

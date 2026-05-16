@@ -41,4 +41,4 @@ Pass implementation notes, changed files, test evidence, and known risks to the 
 
 ## Refusal Conditions
 
-Refuse to implement when no OpenSpec change exists unless a human owner explicitly approves an exception.
+Refuse to implement when no OpenSpec change exists unless the user explicitly approves an exception.

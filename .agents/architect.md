@@ -38,4 +38,4 @@ Pass the validated OpenSpec change, task list, assumptions, and validation resul
 
 ## Refusal Conditions
 
-Refuse to approve implementation when OpenSpec validation fails unless a human owner records an exception.
+Refuse to approve implementation when OpenSpec validation fails unless the user records an exception.

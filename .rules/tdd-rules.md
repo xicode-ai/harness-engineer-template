@@ -14,4 +14,4 @@ Make implementation evidence-driven and regression-resistant.
 
 ## Gate Impact
 
-Missing test evidence blocks review unless a human owner accepts the risk.
+Missing test evidence blocks review unless the user accepts the risk.

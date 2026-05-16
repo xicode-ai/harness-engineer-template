@@ -4,7 +4,7 @@
 
 This document defines a universal, enterprise-grade harness engineering workflow that can support any programming language, framework, repository shape, or delivery platform.
 
-The harness is not designed for one specific project. It is a reusable engineering control layer that standardizes how AI-assisted development moves from product requirements to business analysis, OpenSpec specification, test-driven implementation, review, human approval, and final acceptance archival.
+The harness is not designed for one specific project. It is a reusable engineering control layer that standardizes how AI-assisted development moves from product requirements to business analysis, OpenSpec specification, test-driven implementation, review, user manual review checkpoint, and final acceptance archival.
 
 The core design principle is separation of concerns:
 
@@ -24,7 +24,7 @@ The harness must:
 - Separate business analysis, architecture specification, implementation, review, and acceptance.
 - Use OpenSpec as the canonical specification and acceptance contract.
 - Use TDD as the default development discipline for feature and bugfix implementation.
-- Allow human review at formal checkpoints before acceptance archival.
+- Allow user manual review at a formal checkpoint before acceptance archival.
 - Be copyable into new repositories as a harness template.
 
 The harness should initially be implemented as a specification template repository plus lightweight command conventions. It should leave room for future CLI, CI/CD, policy engine, and dashboard integration.
@@ -39,7 +39,7 @@ This design does not prescribe:
 - A specific CI/CD platform.
 - A specific issue tracker or document management system.
 
-It also does not replace human review. Instead, it creates stronger inputs for human review and makes acceptance decisions easier to audit.
+It also does not replace user review. Instead, it creates stronger inputs for the user's manual review and makes acceptance decisions easier to audit.
 
 ## 4. Repository Structure
 
@@ -53,7 +53,6 @@ The generic harness repository should use this structure:
 │   ├── tdd-develop.md
 │   ├── spec-review.md
 │   ├── code-review.md
-│   ├── human-review.md
 │   └── acceptance-archive.md
 ├── .rules/
 │   ├── engineering-governance.md
@@ -73,8 +72,7 @@ The generic harness repository should use this structure:
 │   ├── business-analyst.md
 │   ├── architect.md
 │   ├── fullstack-developer.md
-│   ├── code-reviewer.md
-│   └── acceptance-officer.md
+│   └── code-reviewer.md
 ├── .workflows/
 │   ├── universal-development-flow.md
 │   ├── gate-model.md
@@ -129,8 +127,7 @@ Recommended commands:
 | `tdd-develop` | Implement specification with TDD | Fullstack Developer | Code, tests, implementation notes |
 | `spec-review` | Validate OpenSpec consistency and completeness | Architect or Spec Reviewer | Spec validation report |
 | `code-review` | Review code against spec and engineering rules | Code Reviewer | Review issue list |
-| `human-review` | Hold explicit human approval gate | Human Owner | Human review decision |
-| `acceptance-archive` | Validate final acceptance and archive change | Acceptance Officer | Acceptance report and archived OpenSpec change |
+| `acceptance-archive` | Validate final acceptance and archive change after user manual review | No autonomous agent | Acceptance report and archived OpenSpec change |
 
 ### 5.2 Rules Layer
 
@@ -143,8 +140,8 @@ Core rules:
 - Implementation must follow TDD unless an explicit exception is recorded.
 - Every test command and validation command must be captured in implementation notes.
 - Code review must output a structured issue list, including severity, file reference, finding, impact, and recommendation.
-- Human review must be represented as a first-class gate before acceptance archival.
-- Acceptance archival must link PRD, analysis report, OpenSpec change, implementation notes, review report, test evidence, and human approval.
+- User manual review is an external checkpoint, not a command or agent-owned task.
+- Acceptance archival must link PRD, analysis report, OpenSpec change, implementation notes, review report, test evidence, and the user's explicit review confirmation.
 
 ### 5.3 Skills Layer
 
@@ -183,7 +180,6 @@ Agents model senior engineering roles. Each agent has clear authority and handof
 | Architect | Convert analysis into OpenSpec and technical specification | Bypass OpenSpec validation |
 | Fullstack Developer | Implement via TDD and produce verification evidence | Accept work without review |
 | Code Reviewer | Review code and produce actionable issue list | Silently fix issues without recording findings |
-| Acceptance Officer | Validate final evidence and archive OpenSpec change | Approve work without human gate |
 
 Agent handoffs must always include:
 
@@ -210,8 +206,8 @@ PRD
   -> OpenSpec validation report
   -> code-review
   -> review issue list
-  -> human-review
-  -> human approval or change request
+  -> user manual review checkpoint
+  -> user confirms review is complete or requests changes
   -> acceptance-archive
   -> archived OpenSpec change and acceptance report
 ```
@@ -224,7 +220,7 @@ The process has five gates:
 | Specification Gate | OpenSpec change exists and validates |
 | Development Gate | TDD evidence, passing tests, implementation notes |
 | Review Gate | Spec validation and code review issue list completed |
-| Acceptance Gate | Human approval and archived OpenSpec change |
+| Acceptance Gate | User review confirmation and archived OpenSpec change |
 
 ## 7. Business Analysis Flow
 
@@ -379,7 +375,7 @@ Rules:
 - Review must focus on correctness, spec alignment, test gaps, maintainability, security, observability, and migration risk.
 - If no issues are found, the review must explicitly state residual risks and test gaps.
 
-## 11. Human Review Gate
+## 11. User Manual Review Checkpoint
 
 Input:
 
@@ -391,33 +387,16 @@ Input:
 
 Process:
 
-1. Human reviewer reads generated artifacts.
-2. Human reviewer approves, requests changes, or accepts specific risks.
-3. Decision is recorded.
-
-Output:
-
-```text
-docs/acceptance/<change-id>-human-review.md
-```
-
-Decision format:
-
-```markdown
-# Human Review Decision
-
-- Change ID:
-- Reviewer:
-- Decision: Approved | Changes Requested | Rejected | Approved With Accepted Risks
-- Accepted Risks:
-- Required Follow-ups:
-- Decision Time:
-```
+1. The harness stops after `code-review` and presents generated artifacts to the user.
+2. The user performs their own manual review outside the command flow.
+3. The user explicitly tells the assistant whether to continue to acceptance archival, return to implementation, or accept listed risks.
 
 Rules:
 
-- Acceptance archival cannot run without a human decision artifact.
-- Accepted risks must be explicit.
+- This checkpoint is not implemented as an executable command.
+- No agent should approve work on the user's behalf.
+- Acceptance archival cannot run until the user explicitly confirms their own review is complete.
+- User-accepted risks must be explicit in the acceptance report.
 - Requested changes must route back to the appropriate command, usually `spec-create`, `tdd-develop`, or `code-review`.
 
 ## 12. Acceptance Archival Flow
@@ -425,18 +404,18 @@ Rules:
 Input:
 
 - OpenSpec change.
-- Human review decision.
+- User confirmation that manual review is complete.
 - Test evidence.
 - Review reports.
 
 Process:
 
-1. Acceptance Officer verifies that all required artifacts exist.
-2. Acceptance Officer checks OpenSpec validation result.
-3. Acceptance Officer confirms code review findings are resolved or accepted.
-4. Acceptance Officer confirms human approval.
-5. Acceptance Officer archives OpenSpec change.
-6. Acceptance Officer creates acceptance report.
+1. Verify that all required artifacts exist.
+2. Check OpenSpec validation result.
+3. Confirm code review findings are resolved or explicitly accepted by the user.
+4. Confirm the user has completed manual review.
+5. Archive OpenSpec change.
+6. Create acceptance report.
 
 Output:
 
@@ -477,7 +456,7 @@ PRD
   -> docs/implementation/<change-id>-implementation-notes.md
   -> docs/reviews/<change-id>-spec-validation.md
   -> docs/reviews/<change-id>-code-review.md
-  -> docs/acceptance/<change-id>-human-review.md
+  -> user manual review checkpoint
   -> docs/acceptance/<change-id>-acceptance-report.md
   -> .openspec/archive/<date>-<change-id>/
 ```
@@ -543,7 +522,7 @@ Every agent file in `.agents/` should follow this structure:
 ## Refusal Conditions
 ```
 
-Refusal conditions are important in enterprise workflows. For example, the Fullstack Developer should refuse to implement when OpenSpec does not exist, unless the human owner explicitly approves an exception.
+Refusal conditions are important in enterprise workflows. For example, the Fullstack Developer should refuse to implement when OpenSpec does not exist, unless the user explicitly approves an exception.
 
 ## 16. Skill Contract Template
 
@@ -614,7 +593,7 @@ The enterprise harness should support auditability through:
 - Stable change IDs.
 - Required artifact paths.
 - Explicit gate pass/fail states.
-- Human approval records.
+- User review confirmation records.
 - Accepted risk records.
 - Test evidence.
 - Review issue status.
@@ -638,8 +617,8 @@ Common failure modes:
 | OpenSpec validation fails | Architect fixes spec or records exception |
 | No test framework exists | Developer proposes minimal test strategy before implementation |
 | TDD cannot be applied directly | Developer records exception and uses characterization or integration tests |
-| Code review finds high severity issue | Work returns to development before human approval |
-| Human reviewer requests changes | Route back to the correct command |
+| Code review finds high severity issue | Work returns to development before acceptance archival unless the user explicitly accepts the risk |
+| User requests changes during manual review | Route back to the correct command |
 | Acceptance evidence missing | Acceptance archival fails and change remains open |
 
 ## 20. Example End-To-End Scenario
@@ -657,10 +636,9 @@ Given a PRD for a new coupon refund capability:
 9. Generate spec validation report.
 10. Run `code-review`.
 11. Generate review issue list.
-12. Run `human-review`.
-13. Record human approval.
-14. Run `acceptance-archive`.
-15. Archive OpenSpec change and generate final acceptance report.
+12. Stop and let the user perform manual review.
+13. After the user explicitly confirms review is complete, run `acceptance-archive`.
+14. Archive OpenSpec change and generate final acceptance report.
 
 ## 21. Initial Implementation Recommendation
 
@@ -686,7 +664,7 @@ To keep the initial implementation portable and executable, the first version sh
 
 - Command files remain runtime-neutral Markdown first.
 - The harness includes templates plus one bundled example workflow.
-- Human review decisions are represented as Markdown first, with optional YAML front matter reserved for automation.
+- User review confirmation is represented in the acceptance report first, with optional YAML front matter reserved for automation.
 - The first automation layer uses language-neutral validation scripts only after the documentation skeleton and example workflow exist.
 
 Future versions may add runtime-specific command adapters, machine-readable policy files, richer CI checks, and dashboards. Those extensions must preserve the same artifact contracts and gate model defined in this design.

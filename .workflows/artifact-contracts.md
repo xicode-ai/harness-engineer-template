@@ -23,7 +23,6 @@ membership-coupon-refund-20260516
 | Implementation notes | `docs/implementation/<change-id>-implementation-notes.md` |
 | Spec validation | `docs/reviews/<change-id>-spec-validation.md` |
 | Code review | `docs/reviews/<change-id>-code-review.md` |
-| Human review | `docs/acceptance/<change-id>-human-review.md` |
 | Acceptance report | `docs/acceptance/<change-id>-acceptance-report.md` |
 | Archive | `.openspec/archive/<date>-<change-id>/` |
 
@@ -41,15 +40,13 @@ membership-coupon-refund-20260516
 - Status: Open | Fixed | Accepted Risk
 ```
 
-## Human Decision Format
+## User Manual Review Checkpoint
 
-```markdown
-# Human Review Decision
+The user performs manual review outside the automated command flow after `code-review` and before `acceptance-archive`.
 
-- Change ID:
-- Reviewer:
-- Decision: Approved | Changes Requested | Rejected | Approved With Accepted Risks
-- Accepted Risks:
-- Required Follow-ups:
-- Decision Time:
-```
+The harness must stop at this checkpoint and wait for an explicit user instruction such as:
+
+- Continue to acceptance archive.
+- I reviewed it; archive it.
+- Changes requested; return to implementation.
+- I accept the listed risks; archive it.

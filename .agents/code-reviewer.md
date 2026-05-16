@@ -34,7 +34,7 @@ Review implementation changes for correctness, specification alignment, tests, m
 
 ## Handoff Protocol
 
-Pass review findings and blocking status to the Human Owner.
+Pass review findings and blocking status to the user, then stop. The user performs their own manual review outside the command flow.
 
 ## Refusal Conditions
 

@@ -14,8 +14,8 @@ PRD
   -> OpenSpec validation report
   -> code-review
   -> review issue list
-  -> human-review
-  -> human approval or change request
+  -> user manual review checkpoint
+  -> user confirms review is complete or requests changes
   -> acceptance-archive
   -> archived OpenSpec change and acceptance report
 ```
@@ -34,8 +34,8 @@ flowchart TD
     G --> H[Spec Validation Report]
     H --> I[code-review]
     I --> J[Review Issue List]
-    J --> K[human-review]
-    K --> L{Human Decision}
+    J --> K[User Manual Review]
+    K --> L{User Decision}
     L -->|Approved| M[acceptance-archive]
     L -->|Changes Requested| C
     M --> N[Archived Change And Acceptance Report]
@@ -48,5 +48,5 @@ flowchart TD
 3. `tdd-develop`
 4. `spec-review`
 5. `code-review`
-6. `human-review`
+6. User performs manual review outside the command flow
 7. `acceptance-archive`

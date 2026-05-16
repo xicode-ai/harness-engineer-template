@@ -52,12 +52,11 @@ Pass criteria:
 
 Required artifacts:
 
-- `docs/acceptance/<change-id>-human-review.md`
 - `docs/acceptance/<change-id>-acceptance-report.md`
 - `.openspec/archive/<date>-<change-id>/`
 
 Pass criteria:
 
-- Human approval exists.
+- The user explicitly confirms their own manual review is complete.
 - Required evidence is linked.
 - OpenSpec change is archived.

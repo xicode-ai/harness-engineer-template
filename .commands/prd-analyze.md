@@ -51,7 +51,7 @@ The report must include executive summary, 5W1H, actors, use case diagram, proce
 
 ## Failure Handling
 
-If the PRD is ambiguous, record questions and block `spec-create` unless a human owner approves explicit assumptions.
+If the PRD is ambiguous, record questions and block `spec-create` unless the user approves explicit assumptions.
 
 ## Next Command
 

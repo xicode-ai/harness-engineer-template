@@ -1,6 +1,6 @@
 ---
 name: acceptance-archival
-description: Verify final evidence, human approval, review resolution, and archive an accepted OpenSpec change. Use at the end of the harness lifecycle before closing a change.
+description: Verify final evidence, user review confirmation, review resolution, and archive an accepted OpenSpec change. Use only after the user explicitly says their own manual review is complete.
 license: MIT
 compatibility: Requires an OpenSpec-compatible repository layout; OpenSpec CLI optional but recommended.
 metadata:
@@ -22,7 +22,7 @@ Confirm evidence completeness, archive the OpenSpec change, and produce final ac
 ## Inputs
 
 - OpenSpec change.
-- Human review decision.
+- User confirmation that manual review is complete.
 - Test evidence.
 - Review reports.
 
@@ -30,8 +30,8 @@ Confirm evidence completeness, archive the OpenSpec change, and produce final ac
 
 1. Verify all required artifacts exist.
 2. Confirm OpenSpec validation passed.
-3. Confirm review blockers are fixed or accepted.
-4. Confirm human approval.
+3. Confirm review blockers are fixed or accepted by the user.
+4. Confirm the user explicitly completed manual review.
 5. Archive the OpenSpec change.
 6. Write acceptance report.
 
@@ -43,7 +43,7 @@ Confirm evidence completeness, archive the OpenSpec change, and produce final ac
 ## Quality Checklist
 
 - Acceptance report links every evidence artifact.
-- Accepted risks are explicit.
+- User-accepted risks are explicit.
 - Missing evidence blocks archival.
 
 ## Adapters
@@ -52,4 +52,4 @@ None.
 
 ## Examples
 
-Use only after `human-review` approves the change.
+Use only after the user explicitly confirms their own manual review is complete.

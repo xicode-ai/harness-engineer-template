@@ -13,7 +13,7 @@ PRD
   -> tdd-develop
   -> spec-review
   -> code-review
-  -> human-review
+  -> user manual review
   -> acceptance-archive
 ```
 
@@ -36,8 +36,8 @@ PRD
 3. Run `spec-create` to produce an OpenSpec change.
 4. Run `tdd-develop` to implement through tests.
 5. Run `spec-review` and `code-review`.
-6. Record human approval with `human-review`.
-7. Complete the lifecycle with `acceptance-archive`.
+6. Stop and let the user perform their own manual review.
+7. After explicit user confirmation, complete the lifecycle with `acceptance-archive`.
 
 ## Design Specification
 

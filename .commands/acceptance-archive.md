@@ -1,6 +1,6 @@
 ---
 name: "Harness: Acceptance Archive"
-description: Verify final evidence, enforce approval gates, archive the OpenSpec change, and produce an acceptance report.
+description: Verify final evidence after the user review checkpoint, archive the OpenSpec change, and produce an acceptance report.
 category: Harness
 tags: [harness, acceptance, archive, workflow]
 ---
@@ -14,13 +14,13 @@ Validate final evidence and archive the completed OpenSpec change.
 ## Inputs
 
 - `.openspec/changes/<change-id>/`
-- `docs/acceptance/<change-id>-human-review.md`
+- User confirmation that manual review is complete.
 - Test evidence.
 - Review reports.
 
 ## Responsible Agent
 
-Acceptance Officer.
+No autonomous agent. This command may run only after the user explicitly confirms their own manual review is complete.
 
 ## Required Skills
 
@@ -38,7 +38,7 @@ Acceptance Officer.
 1. Verify required artifacts exist.
 2. Verify OpenSpec validation result.
 3. Confirm review findings are fixed or accepted.
-4. Confirm human approval.
+4. Confirm the user has explicitly completed manual review.
 5. Archive the OpenSpec change.
 6. Create the acceptance report.
 
@@ -49,7 +49,7 @@ Acceptance Officer.
 
 ## Quality Gate
 
-Acceptance report must link PRD, analysis, OpenSpec, implementation notes, review reports, test evidence, and human decision.
+Acceptance report must link PRD, analysis, OpenSpec, implementation notes, review reports, test evidence, and the user's explicit review confirmation.
 
 ## Failure Handling
 
