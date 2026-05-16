@@ -21,3 +21,13 @@ The original draft treated manual user review as an executable command. The curr
 - Acceptance archival runs only after the user confirms their own review is complete.
 - No agent or command approves work on the user's behalf.
 
+## Agent Format Correction
+
+The original draft used Markdown role contracts under `.agents/`. The current harness uses Codex subagent TOML files instead:
+
+- `.agents/business-analyst.toml`
+- `.agents/architect.toml`
+- `.agents/fullstack-developer.toml`
+- `.agents/code-reviewer.toml`
+
+Each file follows the Codex subagent fields `name`, `description`, `model`, `model_reasoning_effort`, `sandbox_mode`, and `developer_instructions`.

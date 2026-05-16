@@ -69,10 +69,10 @@ The generic harness repository should use this structure:
 │   ├── code-review/
 │   └── acceptance-archival/
 ├── .agents/
-│   ├── business-analyst.md
-│   ├── architect.md
-│   ├── fullstack-developer.md
-│   └── code-reviewer.md
+│   ├── business-analyst.toml
+│   ├── architect.toml
+│   ├── fullstack-developer.toml
+│   └── code-reviewer.toml
 ├── .workflows/
 │   ├── universal-development-flow.md
 │   ├── gate-model.md
@@ -96,7 +96,7 @@ Each folder has a distinct purpose:
 - `.commands/` contains user-facing workflow commands.
 - `.rules/` contains global constraints every command and agent must obey.
 - `.skills/` contains reusable capabilities that can be invoked by agents.
-- `.agents/` defines role prompts, responsibilities, inputs, outputs, and handoff rules.
+- `.agents/` defines Codex subagent TOML configurations, including model, reasoning effort, sandbox mode, and role-specific developer instructions.
 - `.workflows/` defines end-to-end process choreography.
 - `.openspec/` stores formal OpenSpec project context, changes, specs, and archives.
 - `docs/` stores generated business analysis, implementation, review, and acceptance reports.
@@ -500,29 +500,36 @@ This mirrors the Claude command format used under `.claude/commands/`, while kee
 
 ## 15. Agent Contract Template
 
-Every agent file in `.agents/` should follow this structure:
+Every agent file in `.agents/` should use the Codex subagent TOML structure:
 
-```markdown
-# Agent: <agent-name>
+```toml
+name = "<agent-name>"
+description = "<When to use this subagent and what it produces.>"
+model = "gpt-5.5"
+model_reasoning_effort = "high"
+sandbox_mode = "read-only | workspace-write"
+developer_instructions = """
+Mission:
+- <Role mission>
 
-## Mission
+Required inputs:
+- <Inputs>
 
-## Responsibilities
+Working mode:
+1. <Steps>
 
-## Inputs
+Quality checks:
+- <Checks>
 
-## Outputs
+Return:
+- <Expected output>
 
-## Required Skills
-
-## Rules
-
-## Handoff Protocol
-
-## Refusal Conditions
+Refusal conditions:
+- <When to stop or refuse>
+"""
 ```
 
-Refusal conditions are important in enterprise workflows. For example, the Fullstack Developer should refuse to implement when OpenSpec does not exist, unless the user explicitly approves an exception.
+Use `read-only` for review-only agents and `workspace-write` for agents that create analysis, OpenSpec artifacts, implementation notes, tests, or code. Refusal conditions are important in enterprise workflows. For example, the Fullstack Developer should refuse to implement when OpenSpec does not exist, unless the user explicitly approves an exception.
 
 ## 16. Skill Contract Template
 

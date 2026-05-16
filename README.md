@@ -24,7 +24,7 @@ PRD
 | Commands | `.commands/` | Lifecycle orchestration |
 | Rules | `.rules/` | Enterprise governance constraints |
 | Skills | `.skills/` | Reusable task capabilities |
-| Agents | `.agents/` | Role-specific responsibilities and handoffs |
+| Agents | `.agents/` | Codex subagent TOML configs for role-specific work |
 | Workflows | `.workflows/` | End-to-end process and gate model |
 | OpenSpec | `.openspec/` | Specification, change, and archive state |
 | Docs | `docs/` | Analysis, implementation, review, and acceptance evidence |

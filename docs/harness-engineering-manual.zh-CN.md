@@ -27,7 +27,7 @@ PRD
 .commands/      命令编排层
 .rules/         工程规则层
 .skills/        能力技能层
-.agents/        角色代理层
+.agents/        Codex 子代理配置层
 .workflows/     流程与门禁层
 .openspec/      OpenSpec 规格层
 docs/           分析、实现、评审、验收等文档产物
@@ -132,31 +132,29 @@ Skills 是可复用能力。它们不是完整流程，而是 agents 在执行 c
 - Go 使用 `go test ./...`
 - Rust 使用 `cargo test`
 
-### 3.4 Agents：角色代理层
+### 3.4 Agents：Codex 子代理配置层
 
-Agents 模拟一个企业研发团队里的专业角色。
+Agents 模拟一个企业研发团队里的专业角色。当前项目使用 Codex subagent 的标准 TOML 格式，而不是 Markdown 角色说明。
 
 当前已有 4 个 agent：
 
-| Agent | 职责 |
-| --- | --- |
-| Business Analyst | 分析 PRD，产出业务分析报告 |
-| Architect | 基于业务分析创建 OpenSpec 规格 |
-| Fullstack Developer | 基于规格执行 TDD 开发 |
-| Code Reviewer | 审查实现和测试质量 |
+| 文件 | 职责 | 沙箱 |
+| --- | --- | --- |
+| `.agents/business-analyst.toml` | 分析 PRD，产出业务分析报告 | `workspace-write` |
+| `.agents/architect.toml` | 基于业务分析创建 OpenSpec 规格 | `workspace-write` |
+| `.agents/fullstack-developer.toml` | 基于规格执行 TDD 开发 | `workspace-write` |
+| `.agents/code-reviewer.toml` | 审查实现和测试质量 | `read-only` |
 
 每个 agent 都定义了：
 
-- 使命
-- 职责
-- 输入
-- 输出
-- 需要的 skills
-- 遵守的 rules
-- 交接协议
-- 拒绝条件
+- `name`
+- `description`
+- `model`
+- `model_reasoning_effort`
+- `sandbox_mode`
+- `developer_instructions`
 
-拒绝条件很关键。它让 agent 不会越权。例如 Fullstack Developer 在没有 OpenSpec change 时应拒绝实现，Code Reviewer 只能输出审查问题清单，不能替用户批准进入验收。
+`developer_instructions` 中继续保留使命、输入、工作步骤、质量检查、返回格式和拒绝条件。拒绝条件很关键，它让 agent 不会越权。例如 Fullstack Developer 在没有 OpenSpec change 时应拒绝实现，Code Reviewer 只能输出审查问题清单，不能替用户批准进入验收。
 
 ## 4. 端到端流程
 
