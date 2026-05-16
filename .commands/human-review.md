@@ -1,3 +1,10 @@
+---
+name: "Harness: Human Review"
+description: Record a human approval, rejection, change request, or approved-with-risk decision before acceptance archival.
+category: Harness
+tags: [harness, human-review, governance, workflow]
+---
+
 # Command: human-review
 
 ## Purpose

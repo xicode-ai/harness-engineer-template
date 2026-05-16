@@ -487,6 +487,13 @@ PRD
 Every command file in `.commands/` should follow this structure:
 
 ```markdown
+---
+name: "Harness: <Display Name>"
+description: <One sentence describing when this command should be used and what it produces.>
+category: Harness
+tags: [harness, workflow]
+---
+
 # Command: <command-name>
 
 ## Purpose
@@ -510,7 +517,7 @@ Every command file in `.commands/` should follow this structure:
 ## Next Command
 ```
 
-This keeps commands portable across AI tools and execution environments.
+This mirrors the Claude command format used under `.claude/commands/`, while keeping the command body portable across AI tools and execution environments.
 
 ## 15. Agent Contract Template
 
@@ -543,6 +550,17 @@ Refusal conditions are important in enterprise workflows. For example, the Fulls
 Every skill directory in `.skills/` should include a `SKILL.md` with this structure:
 
 ```markdown
+---
+name: <skill-name>
+description: <Trigger-focused description. Include when to use the skill and what it does.>
+license: MIT
+compatibility: <Runtime, CLI, or repository requirements.>
+metadata:
+  author: harness-engineer-template
+  version: "1.0"
+  generatedBy: codex
+---
+
 # Skill: <skill-name>
 
 ## Trigger
@@ -562,7 +580,7 @@ Every skill directory in `.skills/` should include a `SKILL.md` with this struct
 ## Examples
 ```
 
-Language-specific or platform-specific behavior should live under adapters rather than in the core skill.
+This mirrors the Claude Skill format used under `.claude/skills/`. Language-specific or platform-specific behavior should live under adapters rather than in the core skill.
 
 ## 17. Language Adapter Strategy
 

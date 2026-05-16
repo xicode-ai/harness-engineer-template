@@ -1,3 +1,10 @@
+---
+name: "Harness: TDD Develop"
+description: Implement an OpenSpec change using test-driven development, focused verification, regression checks, and implementation notes.
+category: Harness
+tags: [harness, tdd, development, workflow]
+---
+
 # Command: tdd-develop
 
 ## Purpose

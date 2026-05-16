@@ -1,3 +1,14 @@
+---
+name: acceptance-archival
+description: Verify final evidence, human approval, review resolution, and archive an accepted OpenSpec change. Use at the end of the harness lifecycle before closing a change.
+license: MIT
+compatibility: Requires an OpenSpec-compatible repository layout; OpenSpec CLI optional but recommended.
+metadata:
+  author: harness-engineer-template
+  version: "1.0"
+  generatedBy: codex
+---
+
 # Skill: acceptance-archival
 
 ## Trigger

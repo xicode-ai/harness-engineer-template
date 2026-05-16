@@ -1,3 +1,14 @@
+---
+name: tdd-development
+description: Implement OpenSpec tasks with test-driven development. Use when coding should follow failing test, minimal implementation, passing test, refactor, and verification evidence across any language.
+license: MIT
+compatibility: Runtime-neutral; selects language adapters from adapters/.
+metadata:
+  author: harness-engineer-template
+  version: "1.0"
+  generatedBy: codex
+---
+
 # Skill: tdd-development
 
 ## Trigger

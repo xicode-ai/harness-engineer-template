@@ -1,3 +1,10 @@
+---
+name: "Harness: Acceptance Archive"
+description: Verify final evidence, enforce approval gates, archive the OpenSpec change, and produce an acceptance report.
+category: Harness
+tags: [harness, acceptance, archive, workflow]
+---
+
 # Command: acceptance-archive
 
 ## Purpose

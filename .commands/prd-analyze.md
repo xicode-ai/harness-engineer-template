@@ -1,3 +1,10 @@
+---
+name: "Harness: PRD Analyze"
+description: Analyze a PRD into 5W1H, use cases, process flow, state model, feature matrix, risks, and an OpenSpec-ready business analysis report.
+category: Harness
+tags: [harness, analysis, prd, workflow]
+---
+
 # Command: prd-analyze
 
 ## Purpose

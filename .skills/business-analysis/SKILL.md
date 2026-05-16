@@ -1,3 +1,14 @@
+---
+name: business-analysis
+description: Convert a PRD into a structured business analysis report. Use when the user provides product requirements, asks for 5W1H analysis, use cases, process flows, state diagrams, feature matrices, or wants an OpenSpec-ready analysis before implementation.
+license: MIT
+compatibility: Runtime-neutral Markdown skill.
+metadata:
+  author: harness-engineer-template
+  version: "1.0"
+  generatedBy: codex
+---
+
 # Skill: business-analysis
 
 ## Trigger

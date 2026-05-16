@@ -1,3 +1,14 @@
+---
+name: openspec-validation
+description: Validate an OpenSpec change for structure, requirement mapping, and readiness. Use before implementation, during spec review, and before acceptance archival.
+license: MIT
+compatibility: Requires an OpenSpec-compatible repository layout; OpenSpec CLI optional but recommended.
+metadata:
+  author: harness-engineer-template
+  version: "1.0"
+  generatedBy: codex
+---
+
 # Skill: openspec-validation
 
 ## Trigger

@@ -1,3 +1,14 @@
+---
+name: openspec-authoring
+description: Create an OpenSpec change from business analysis. Use when requirements need proposal, design, tasks, capability spec deltas, and feature-to-requirement mapping before development.
+license: MIT
+compatibility: Requires an OpenSpec-compatible repository layout; OpenSpec CLI optional but recommended.
+metadata:
+  author: harness-engineer-template
+  version: "1.0"
+  generatedBy: codex
+---
+
 # Skill: openspec-authoring
 
 ## Trigger

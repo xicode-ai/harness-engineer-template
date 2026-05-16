@@ -1,3 +1,10 @@
+---
+name: "Harness: Code Review"
+description: Review implementation changes against OpenSpec, tests, maintainability, security, observability, and operational risk.
+category: Harness
+tags: [harness, code-review, quality, workflow]
+---
+
 # Command: code-review
 
 ## Purpose

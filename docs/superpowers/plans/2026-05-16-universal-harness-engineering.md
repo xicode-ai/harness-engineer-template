@@ -75,6 +75,15 @@ README.md
 
 This plan intentionally creates runtime-neutral Markdown first. Automation scripts are left for a later plan after the human-readable harness contracts are stable.
 
+## Format Correction
+
+After comparing with the repository's `.claude/commands/` and `.claude/skills/` examples, command and skill files must use Claude-compatible YAML frontmatter:
+
+- Commands begin with `name`, `description`, `category`, and `tags`.
+- Skills begin with `name`, `description`, `license`, `compatibility`, and `metadata`.
+
+The authoritative contract template is maintained in `docs/superpowers/specs/2026-05-16-universal-harness-engineering-design.md`.
+
 ---
 
 ### Task 1: Create Harness Directory Skeleton

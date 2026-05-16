@@ -1,3 +1,10 @@
+---
+name: "Harness: Spec Review"
+description: Validate that an OpenSpec change is complete, internally consistent, and aligned with implemented behavior.
+category: Harness
+tags: [harness, openspec, review, workflow]
+---
+
 # Command: spec-review
 
 ## Purpose

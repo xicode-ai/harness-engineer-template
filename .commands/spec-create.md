@@ -1,3 +1,10 @@
+---
+name: "Harness: Spec Create"
+description: Create an OpenSpec change from a PRD and business analysis report, including proposal, design, tasks, spec deltas, and validation.
+category: Harness
+tags: [harness, openspec, specification, workflow]
+---
+
 # Command: spec-create
 
 ## Purpose

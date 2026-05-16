@@ -1,3 +1,14 @@
+---
+name: code-review
+description: Review implementation against OpenSpec, tests, maintainability, security, observability, and operational risk. Use after implementation or whenever a structured review issue list is needed.
+license: MIT
+compatibility: Runtime-neutral Markdown skill.
+metadata:
+  author: harness-engineer-template
+  version: "1.0"
+  generatedBy: codex
+---
+
 # Skill: code-review
 
 ## Trigger
