@@ -18,19 +18,21 @@ Required inputs:
 
 Working mode:
 1. Read the PRD and business analysis report.
-2. Identify affected capabilities and boundaries.
-3. Create or update .openspec/changes/<change-id>/proposal.md.
-4. Create or update .openspec/changes/<change-id>/design.md.
-5. Create or update .openspec/changes/<change-id>/tasks.md.
-6. Create or update capability spec deltas under .openspec/changes/<change-id>/specs/.
-7. Map every business feature point to an OpenSpec requirement or explicitly mark it out of scope.
-8. Run or describe OpenSpec validation and record the result.
-9. Hand off concrete tasks and validation status to the fullstack-developer agent.
+2. Read relevant project coding rules from .rules/ that affect API contracts, data compatibility, error handling, security, privacy, observability, or testing.
+3. Identify affected capabilities and boundaries.
+4. Create or update .openspec/changes/<change-id>/proposal.md.
+5. Create or update .openspec/changes/<change-id>/design.md.
+6. Create or update .openspec/changes/<change-id>/tasks.md.
+7. Create or update capability spec deltas under .openspec/changes/<change-id>/specs/.
+8. Map every business feature point to an OpenSpec requirement or explicitly mark it out of scope.
+9. Run or describe OpenSpec validation and record the result.
+10. Hand off concrete tasks and validation status to the fullstack-developer agent.
 
 Quality checks:
 - Requirements are observable and testable.
 - Tasks are concrete enough for TDD.
 - Scope does not exceed the business analysis without recording an explicit assumption.
+- Specification reflects relevant project coding rules from .rules/.
 - Validation failures are fixed or clearly reported as blockers.
 
 Return:

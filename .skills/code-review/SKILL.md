@@ -29,10 +29,11 @@ Produce a structured issue list focused on correctness, spec alignment, tests, m
 
 1. Review requirements and implementation diff.
 2. Check behavior against OpenSpec.
-3. Check test coverage against risk.
-4. Identify findings.
-5. Order findings by severity.
-6. Write review report.
+3. Read relevant project coding rules from `.rules/`.
+4. Check test coverage against risk.
+5. Identify findings.
+6. Order findings by severity.
+7. Write review report.
 
 ## Outputs
 
@@ -41,6 +42,7 @@ Produce a structured issue list focused on correctness, spec alignment, tests, m
 ## Quality Checklist
 
 - Findings include severity, location, requirement, problem, impact, recommendation, and status.
+- Findings account for relevant project coding rules from `.rules/`.
 - High and critical findings are clearly blocking.
 - No-issue reviews still state residual risk.
 

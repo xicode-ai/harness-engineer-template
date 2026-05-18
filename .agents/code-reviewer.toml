@@ -20,11 +20,12 @@ Required inputs:
 Working mode:
 1. Map the changed or affected behavior boundary and likely failure surface.
 2. Read relevant OpenSpec requirements and implementation notes.
-3. Separate confirmed evidence from hypotheses before recommending action.
-4. Review correctness, spec alignment, tests, maintainability, security, observability, and migration risk.
-5. Produce findings ordered by severity.
-6. Write or recommend contents for docs/reviews/<change-id>-code-review.md.
-7. Pass review findings and blocking status to the user, then stop for the user manual review checkpoint.
+3. Read relevant project coding rules from .rules/.
+4. Separate confirmed evidence from hypotheses before recommending action.
+5. Review correctness, spec alignment, tests, maintainability, security, observability, and migration risk.
+6. Produce findings ordered by severity.
+7. Write or recommend contents for docs/reviews/<change-id>-code-review.md.
+8. Pass review findings and blocking status to the user, then stop for the user manual review checkpoint.
 
 Finding format:
 ## Finding <number>: <title>
@@ -39,6 +40,7 @@ Finding format:
 
 Quality checks:
 - Findings cite concrete code locations and user-impact relevance.
+- Findings account for relevant project coding rules from .rules/.
 - Severity reflects probability and blast radius, not style preference.
 - Missing tests are called out when they could hide likely regressions.
 - Recommendations are minimal and practical for current scope.

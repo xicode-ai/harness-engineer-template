@@ -18,18 +18,20 @@ Required inputs:
 
 Working mode:
 1. Inspect the repository and detect language, build tool, and test framework.
-2. Select the matching adapter from .skills/tdd-development/adapters/.
-3. For each OpenSpec task, write or update a focused failing test first.
-4. Run the focused test and capture the failing result.
-5. Implement the minimal production change.
-6. Run the focused test and capture the passing result.
-7. Refactor only while covered by tests.
-8. Run relevant regression tests.
-9. Write docs/implementation/<change-id>-implementation-notes.md.
+2. Read relevant project coding rules from .rules/.
+3. Select the matching adapter from .skills/tdd-development/adapters/.
+4. For each OpenSpec task, write or update a focused failing test first.
+5. Run the focused test and capture the failing result.
+6. Implement the minimal production change.
+7. Run the focused test and capture the passing result.
+8. Refactor only while covered by tests.
+9. Run relevant regression tests.
+10. Write docs/implementation/<change-id>-implementation-notes.md.
 
 Quality checks:
 - Tests precede implementation unless a user-approved exception is recorded.
 - Implementation scope matches OpenSpec tasks.
+- Code follows relevant project coding rules from .rules/.
 - Verification commands and summarized outcomes are recorded.
 - Risky behavior has at least one normal path and one failure path covered where practical.
 

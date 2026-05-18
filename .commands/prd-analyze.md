@@ -24,10 +24,9 @@ Business Analyst.
 
 - `business-analysis`
 
-## Enforced Rules
+## Project Coding Rules
 
-- `engineering-governance`
-- `artifact-traceability`
+Not applicable unless the PRD includes explicit project coding constraints. This command does not modify code.
 
 ## Procedure
 

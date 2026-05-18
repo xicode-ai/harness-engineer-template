@@ -27,11 +27,9 @@ No autonomous agent. This command may run only after the user explicitly confirm
 - `acceptance-archival`
 - `openspec-validation`
 
-## Enforced Rules
+## Project Coding Rules
 
-- `acceptance-rules`
-- `artifact-traceability`
-- `openspec-rules`
+No new code is reviewed in this command. Use prior `spec-review` and `code-review` outputs to confirm project coding rules were already considered.
 
 ## Procedure
 

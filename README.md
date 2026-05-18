@@ -22,7 +22,7 @@ PRD
 | Layer | Path | Purpose |
 | --- | --- | --- |
 | Commands | `.commands/` | Lifecycle orchestration |
-| Rules | `.rules/` | Enterprise governance constraints |
+| Rules | `.rules/` | Project-specific coding standards |
 | Skills | `.skills/` | Reusable task capabilities |
 | Agents | `.agents/` | Codex subagent TOML configs for role-specific work |
 | Workflows | `.workflows/` | End-to-end process and gate model |

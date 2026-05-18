@@ -25,11 +25,16 @@ Fullstack Developer.
 
 - `tdd-development`
 
-## Enforced Rules
+## Project Coding Rules
 
-- `engineering-governance`
-- `artifact-traceability`
-- `tdd-rules`
+Apply relevant project coding rules from `.rules/`, especially:
+
+- `coding-style.md`
+- `testing-standards.md`
+- `api-and-data-contracts.md`
+- `error-handling.md`
+- `security-and-privacy.md`
+- `observability.md`
 
 ## Procedure
 

@@ -24,10 +24,9 @@ Architect or Spec Reviewer.
 
 - `openspec-validation`
 
-## Enforced Rules
+## Project Coding Rules
 
-- `openspec-rules`
-- `artifact-traceability`
+Read `.rules/` when validating whether OpenSpec requirements reflect project-level API, data, error handling, security, privacy, observability, and testing constraints.
 
 ## Procedure
 

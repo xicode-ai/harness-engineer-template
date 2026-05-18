@@ -55,12 +55,13 @@ The generic harness repository should use this structure:
 │   ├── code-review.md
 │   └── acceptance-archive.md
 ├── .rules/
-│   ├── engineering-governance.md
-│   ├── artifact-traceability.md
-│   ├── openspec-rules.md
-│   ├── tdd-rules.md
-│   ├── review-rules.md
-│   └── acceptance-rules.md
+│   ├── README.md
+│   ├── coding-style.md
+│   ├── testing-standards.md
+│   ├── api-and-data-contracts.md
+│   ├── error-handling.md
+│   ├── security-and-privacy.md
+│   └── observability.md
 ├── .skills/
 │   ├── business-analysis/
 │   ├── openspec-authoring/
@@ -94,7 +95,7 @@ The generic harness repository should use this structure:
 Each folder has a distinct purpose:
 
 - `.commands/` contains user-facing workflow commands.
-- `.rules/` contains global constraints every command and agent must obey.
+- `.rules/` contains project-specific coding standards and engineering conventions that agents must apply when writing or reviewing code.
 - `.skills/` contains reusable capabilities that can be invoked by agents.
 - `.agents/` defines Codex subagent TOML configurations, including model, reasoning effort, sandbox mode, and role-specific developer instructions.
 - `.workflows/` defines end-to-end process choreography.
@@ -113,7 +114,7 @@ Every command should define:
 - Required inputs.
 - Responsible agent.
 - Required skills.
-- Rules that must be enforced.
+- Project coding rules that should be read from `.rules/`.
 - Output artifacts.
 - Quality gates.
 - Next command.
@@ -131,17 +132,18 @@ Recommended commands:
 
 ### 5.2 Rules Layer
 
-The rules layer defines enterprise constraints. Rules are global and should be enforced across all commands.
+The rules layer defines project-specific coding standards. It is not the workflow governance layer. Workflow gates, artifact contracts, sequencing, and acceptance conditions live under `.workflows/` and `.commands/`.
 
-Core rules:
+Recommended coding rule files:
 
-- A PRD-driven feature must not enter implementation until business analysis and OpenSpec artifacts exist.
-- Every OpenSpec change must include proposal, design, task list, affected capabilities, and validation result.
-- Implementation must follow TDD unless an explicit exception is recorded.
-- Every test command and validation command must be captured in implementation notes.
-- Code review must output a structured issue list, including severity, file reference, finding, impact, and recommendation.
-- User manual review is an external checkpoint, not a command or agent-owned task.
-- Acceptance archival must link PRD, analysis report, OpenSpec change, implementation notes, review report, test evidence, and the user's explicit review confirmation.
+- `coding-style.md`: naming, formatting, comments, structure, and maintainability.
+- `testing-standards.md`: unit, integration, regression, and verification conventions.
+- `api-and-data-contracts.md`: API, DTO, schema, compatibility, and migration conventions.
+- `error-handling.md`: validation, exception, retry, fallback, and failure semantics.
+- `security-and-privacy.md`: authorization, secrets, unsafe input, sensitive data, and privacy constraints.
+- `observability.md`: logging, metrics, tracing, audit events, and diagnostics.
+
+Each concrete project should replace or extend these files with its own coding standards.
 
 ### 5.3 Skills Layer
 
@@ -483,7 +485,7 @@ tags: [harness, workflow]
 
 ## Required Skills
 
-## Enforced Rules
+## Project Coding Rules
 
 ## Procedure
 

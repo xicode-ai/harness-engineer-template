@@ -25,11 +25,9 @@ Architect.
 - `openspec-authoring`
 - `openspec-validation`
 
-## Enforced Rules
+## Project Coding Rules
 
-- `engineering-governance`
-- `artifact-traceability`
-- `openspec-rules`
+Read `.rules/` for project coding constraints that affect the specification, especially API contracts, data compatibility, error handling, security, privacy, and observability.
 
 ## Procedure
 
